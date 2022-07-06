@@ -7,19 +7,37 @@
             <!-- Detalles -->
             <div class="card-body p-4">
                 <div class="text-center">
-                    <h5 class="fw-bolder">${producto.nombre}</h5>
-                    <p class="mb-1"> $ ${producto.precio}</p>
-                    <ins>${producto.estado}</ins> 
-                </div>
+                    <c:choose>
+                        <c:when test="${producto.cantidad>20}">
+                            <span class="badge rounded-pill bg-success text-uppercase">En Stock</span>
+                        </c:when>
+                        <c:when test="${producto.cantidad<20 && producto.cantidad>0}">
+                            <span class="badge rounded-pill bg-warning text-uppercase">
+                                Bajo Stock
+                            </span>
+                        </c:when>
+                        <c:otherwise>
+                            <span class="badge rounded-pill bg-secondary text-uppercase">Sin Stock</span>
+                        </c:otherwise>
+                    </c:choose>
+                </div>            
+                    
+                 <div class="text-center mt-2 mb-2">
+                    <h4 class="card-title " >${producto.nombre}</h4>
+                 </div>
+                
+                 <div class="text-center">
+                    <h4 class="card-subtitle display-6">$${producto.precio}</h4>
+                 </div>
             </div>
             <!-- Product actions-->
             <div class="card-footer border-top-0 bg-transparent">
                 <div class="row justify-content-center">
                     <div class="col-6">
-                        <a href="${pageContext.request.contextPath}/app?accion=edit&id=${producto.id}" class="btn btn-warning btn-block w-100">Editar</a>
+                        <a href="${pageContext.request.contextPath}/inventario?accion=edit&id=${producto.id}" class="btn btn-success btn-block w-100">Editar</a>
                     </div>
                     <div class="col-6">
-                        <a href="${pageContext.request.contextPath}/app?accion=remove&id=${producto.id}" class="btn btn-danger btn-block w-100">Borrar</a>
+                        <a href="${pageContext.request.contextPath}/inventario?accion=remove&id=${producto.id}" class="btn btn-danger btn-block w-100">Borrar</a>
                     </div>
                 </div>
             </div>
