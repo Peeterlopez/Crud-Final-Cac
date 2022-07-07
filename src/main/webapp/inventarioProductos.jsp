@@ -17,7 +17,7 @@
                     <p class="lead">Aquí puedes ver todos tus productos de la Base de Datos</p>
                     <div>
                         <a href="#" class="btn btn-success"
-                   data-bs-toggle="modal" data-bs-target="#modalAgregarAlumno">Agregar producto</a>
+                   data-bs-toggle="modal" data-bs-target="#modalAgregarProducto">Agregar producto</a>
                     </div>
                 </div>
              </div>
@@ -25,7 +25,7 @@
             
             <c:choose>
                 <c:when test="${Productos!= null && !Productos.isEmpty()}">
-                    <div class="row ">
+                    <div class="row">
                     <jsp:include page="WEB-INF/pages/alumnos/partes/cardsAlumnos.jsp" />
                     </div>
                 </c:when>
@@ -37,6 +37,7 @@
             
         </div>
     </section>
-
+    <jsp:include page="WEB-INF/pages/alumnos/partes/modalAgregarAlumno.jsp" />
+    <script src="scripts/fotobase64.js"> </script>
     <jsp:include page="WEB-INF/pages/comunes/footer.jsp" />
     <jsp:include page="WEB-INF/pages/comunes/finHTML.jsp" />

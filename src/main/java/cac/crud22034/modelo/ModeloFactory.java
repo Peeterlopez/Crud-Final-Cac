@@ -19,11 +19,11 @@ public class ModeloFactory {
         return mf;
     }
 
-    public Modelo crearModelo(String nombreModelo) {
-        Modelo m = null;
-        String nombreClase = mf.getClass().getPackage().getName() + ".Modelo" + nombreModelo;
+    public ModeloP crearModelo(String nombreModelo) {
+        ModeloP m = null;
+        String nombreClase = mf.getClass().getPackage().getName() + ".ModeloP" + nombreModelo;
         try {
-            m = (Modelo) Class.forName(nombreClase).getDeclaredConstructor().newInstance();
+            m = (ModeloP) Class.forName(nombreClase).getDeclaredConstructor().newInstance();
         } catch (Exception ex) {
             throw new RuntimeException("Ocurrió un error al instanciar un modelo de tipo " + nombreClase, ex);
         }
