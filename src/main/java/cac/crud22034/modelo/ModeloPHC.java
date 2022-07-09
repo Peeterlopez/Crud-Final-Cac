@@ -67,6 +67,24 @@ public class ModeloPHC implements ModeloP {
         return 0;
     }
     
+    @Override
+    public Producto buscarProductos (String nombre){
+        int i = 0;
+        Producto encontrado = null;
+        while (i < this.productosGuardados.size() && encontrado == null) {
+            Producto a = this.productosGuardados.get(i);
+            if (a.getNombre() == nombre) {
+                encontrado = a;
+            } else {
+                i++;
+            }
+        }
+        if (encontrado == null) {
+            throw new RuntimeException("No se encontró producto con nombre " + nombre);
+        }
+        return encontrado;
+    }
+    
     private void crearAlumnosFake() {
         try (InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("carasFake.properties")) {
             Properties props = new Properties();

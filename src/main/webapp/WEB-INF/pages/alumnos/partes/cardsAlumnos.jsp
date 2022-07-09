@@ -9,15 +9,15 @@
                 <div class="text-center">
                     <c:choose>
                         <c:when test="${producto.cantidad>20}">
-                            <span class="badge rounded-pill bg-success text-uppercase" data-bs-toggle="tooltip" data-bs-placement="top" title="${producto.cantidad}">En Stock</span>
+                            <span class="badge rounded-pill bg-success text-uppercase" data-bs-toggle="mensaje" data-bs-placement="top" title="${producto.cantidad}">En Stock</span>
                         </c:when>
                         <c:when test="${producto.cantidad<20 && producto.cantidad>0}">
-                            <span class="badge rounded-pill bg-warning text-uppercase" data-bs-toggle="tooltip" data-bs-placement="top" title="${producto.cantidad}">
+                            <span class="badge rounded-pill bg-warning text-uppercase" data-bs-toggle="mensaje" data-bs-placement="top" title="${producto.cantidad}">
                                 Bajo Stock
                             </span>
                         </c:when>
                         <c:otherwise>
-                            <span class="badge rounded-pill bg-secondary text-uppercase" data-bs-toggle="tooltip" data-bs-placement="top" title="${producto.cantidad}">Sin Stock</span>
+                            <span class="badge rounded-pill bg-secondary text-uppercase" data-bs-toggle="mensaje" data-bs-placement="top" title="${producto.cantidad}">Sin Stock</span>
                         </c:otherwise>
                     </c:choose>
                 </div>            

@@ -8,7 +8,7 @@
 <body>
 
     <jsp:include page="WEB-INF/pages/comunes/nav.jsp" />
-
+    <jsp:include page="WEB-INF/pages/alumnos/partes/barraDeBusqueda.jsp" />
     <section class="py-5">
         <div class="container">
             <div class="pb-4">

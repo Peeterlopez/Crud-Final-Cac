@@ -43,4 +43,12 @@ public interface ModeloP {
      * @return La cantidad de registros modificados
      */
     public int removeProducto(int id);
-}
+    
+    /**
+     * Busca un alumno por su nombre
+     * @param nombre el nombre del producto a encontrar
+     * @return La cantidad de registros modificados
+     */
+    public Producto buscarProductos(String nombre);
+
+   }
