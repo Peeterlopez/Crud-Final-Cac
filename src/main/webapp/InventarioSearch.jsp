@@ -10,9 +10,12 @@
     <jsp:include page="WEB-INF/pages/comunes/nav.jsp" />
     <jsp:include page="WEB-INF/pages/alumnos/partes/barraDeBusqueda.jsp" />
     
-    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 mt-4">
-        <div class="card h-100">
+    <div class="container col-sm-12 col-md-6 col-lg-4 col-xl-3 my-4">
+        <div class="card h-100 align-content-center text-center align-self-center">
             <!-- Foto -->
+            <span class="pull-left my-2" style="z-index: 10; position: absolute; left: 18px;">
+                <h4> ${productoABuscar.id} </h4> 
+            </span>
             <img class="card-img-top" src="${productoABuscar.foto}" alt="Foto de ${productoABuscar.nombre}" />
             <!-- Detalles -->
             <div class="card-body p-4">

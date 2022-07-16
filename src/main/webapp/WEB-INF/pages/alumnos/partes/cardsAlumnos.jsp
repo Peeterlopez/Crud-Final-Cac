@@ -3,12 +3,15 @@
     <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 mt-4">
         <div class="card h-100">
             <!-- Foto -->
+            <span class="pull-left my-2 badge rounded-pill bg-light text-dark" style="z-index: 10; position: absolute; left: 18px;">
+                <h6 class="pt-2"> ${producto.id} </h6>
+            </span>
             <img class="card-img-top" src="${producto.foto}" alt="Foto de ${producto.nombre}" />
             <!-- Detalles -->
             <div class="card-body p-4">
                 <div class="text-center">
                     <c:choose>
-                        <c:when test="${producto.cantidad>20}">
+                        <c:when test="${producto.cantidad>=20}">
                             <span class="badge rounded-pill bg-success text-uppercase" data-bs-toggle="mensaje" data-bs-placement="top" title="${producto.cantidad}">En Stock</span>
                         </c:when>
                         <c:when test="${producto.cantidad<20 && producto.cantidad>0}">

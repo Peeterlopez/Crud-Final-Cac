@@ -68,17 +68,21 @@ public class ModeloPHC implements ModeloP {
     }
     
     @Override
-    public Producto buscarProductos (String nombre){
+    public Producto buscarProducto (String nombre){
         int i = 0;
+        String x;
         Producto encontrado = null;
         while (i < this.productosGuardados.size() && encontrado == null) {
             Producto a = this.productosGuardados.get(i);
-            if (a.getNombre() == nombre) {
+            x= a.getNombre();
+            System.out.println(x);
+            if (nombre.equalsIgnoreCase(x)) {
                 encontrado = a;
             } else {
                 i++;
             }
         }
+    
         if (encontrado == null) {
             throw new RuntimeException("No se encontró producto con nombre " + nombre);
         }

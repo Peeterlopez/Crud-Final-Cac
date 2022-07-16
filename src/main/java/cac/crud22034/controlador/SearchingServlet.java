@@ -10,12 +10,14 @@ import cac.crud22034.modelo.Producto;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.time.Clock;
 import java.util.Properties;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.taglibs.standard.tag.el.core.OutTag;
 
 /**
  *
@@ -42,6 +44,7 @@ public class SearchingServlet extends HttpServlet {
         accion = accion == null ? "":accion;
         int elId;
         Producto p;
+        String nombre;
         
         switch(accion){
             case"remove":
@@ -61,12 +64,22 @@ public class SearchingServlet extends HttpServlet {
                 request.getRequestDispatcher(URI_EDIT).forward(request, response);
                 
                 break;
+                
             default:
-                elId= Integer.parseInt(request.getParameter("id"));
-                p=model.getProducto(elId);
+                nombre = (request.getParameter("nombre"));
+                           
+                if (nombre==null || nombre.trim().isEmpty() || nombre==""){
+                elId = Integer.parseInt(request.getParameter("id"));        
+                p = model.getProducto(elId);
                 request.setAttribute("productoABuscar",p);       
                 request.getRequestDispatcher(URI_SEARCH).forward(request, response);
-                
+                        
+                        }
+                        else{
+                p = model.buscarProducto(nombre);
+                request.setAttribute("productoABuscar",p);       
+                request.getRequestDispatcher(URI_SEARCH).forward(request, response);
+                                }
                 break;
         
     }

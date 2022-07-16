@@ -49,6 +49,6 @@ public interface ModeloP {
      * @param nombre el nombre del producto a encontrar
      * @return La cantidad de registros modificados
      */
-    public Producto buscarProductos(String nombre);
+    public Producto buscarProducto(String nombre);
 
    }
